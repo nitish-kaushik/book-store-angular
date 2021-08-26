@@ -5,14 +5,8 @@ import { DeleteBookComponent } from './components/delete-book/delete-book.compon
 import { UserComponent } from './user.component';
 
 const routes: Routes = [
-  {
-    path: 'user/:userId',
-    component: UserComponent,
-    children: [
-      { path: 'add-book', component: AddBookComponent },
-      { path: 'delete-book', component: DeleteBookComponent },
-    ],
-  },
+  { path: 'add-book', component: AddBookComponent },
+  { path: 'delete-book', component: DeleteBookComponent },
 ];
 
 @NgModule({
