@@ -9,6 +9,7 @@ const routes: Routes = [
     path: 'public',
     component: PublicComponent,
     children: [
+      { path: '', redirectTo: 'all-books', pathMatch: 'full' },
       { path: 'all-books', component: AllBooksComponent },
       {
         path: 'book-details/:id/author/:authorId',
