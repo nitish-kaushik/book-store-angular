@@ -1,2 +1,23 @@
-<p>all-books works!</p>
-<a routerLink="/books/1">Go to all books</a>
+<h2>Books</h2>
+
+<div class="container">
+    <mat-card class="example-card" *ngFor="let book of books">
+        <mat-card-header>
+            <mat-card-title>{{book.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>
+                Author: {{book.author}}
+            </p>
+            <p> totalPages: {{book.totalPages}}</p>
+            <p>
+                Price: {{book.price.value + ' '+ book.price.currency}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>Details</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
