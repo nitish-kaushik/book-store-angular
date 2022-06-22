@@ -20,7 +20,7 @@ import { TestService } from './shared/services/test.service';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [{ provide: CounterService, useClass: Counter2Service }, TestService],
+  providers: [{ provide: Counter2Service, useExisting: CounterService }, CounterService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
