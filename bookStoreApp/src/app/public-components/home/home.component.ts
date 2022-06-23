@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CounterService } from 'src/app/shared/services/counter.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { CounterService } from 'src/app/shared/services/counter.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public _counterService: CounterService) { }
+  constructor(public _counterService: CounterService,
+    @Inject('appTitle') public config: any
+  ) { }
 
   ngOnInit(): void {
   }
