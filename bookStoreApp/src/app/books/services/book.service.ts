@@ -83,4 +83,29 @@ export class BookService {
     ];
   }
 
+
+  public recentBooks(): any[] {
+    return [
+      {
+        "id": 1,
+        "title": "Angular fundamentals",
+        "totalPages": 453,
+        "author": "Ram Singh",
+        "price": {
+          "currency": "INR",
+          "value": 199
+        }
+      },
+      {
+        "id": 2,
+        "title": "Java fundamentals",
+        "totalPages": 987,
+        "author": "Kishan Pal",
+        "price": {
+          "currency": "USD",
+          "value": 19
+        }
+      },
+    ];
+  }
 }

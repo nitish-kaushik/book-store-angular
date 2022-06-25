@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-authors',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./authors.component.scss']
 })
 export class AuthorsComponent implements OnInit {
+
+  @Input()
+  data: number;
+
+  @Input()
+  showAuthors: boolean;
 
   constructor() { }
 
