@@ -8,6 +8,7 @@
 
 <p>Value = {{config.title}}</p>
 <p>Des = {{config.description}}</p>
+<button (click)="authors.setData(1)">Pass data to child</button>
 
 <h2>Our Authors</h2>
-<app-authors [data]="_counterService.counter" [showAuthors]="_counterService.counter > 4"></app-authors>
+<app-authors #authors></app-authors>
