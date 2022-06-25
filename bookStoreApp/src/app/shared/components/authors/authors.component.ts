@@ -8,7 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AuthorsComponent implements OnInit {
 
   @Input()
-  data: number;
+  set data(value: number) {
+    this._data = ++value;
+  }
+  get data(): number {
+    return this._data;
+  }
+
+  private _data: number;
 
   @Input()
   showAuthors: boolean;
