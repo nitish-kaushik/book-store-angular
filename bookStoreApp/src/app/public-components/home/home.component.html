@@ -1,14 +1,13 @@
-<p>home works!</p>
+<p #title>home works!</p>
 
 <button (click)="increase()">Counter ++</button>
 
-<button (click)="decrease()">Counter --</button>
+<button (click)="decrease()" mat-raised-button #decButton>Counter --</button>
 
 <p>Counter = {{_counterService.counter}}</p>
 
 <p>Value = {{config.title}}</p>
 <p>Des = {{config.description}}</p>
-<button (click)="authors.setData(1)">Pass data to child</button>
 
 <h2>Our Authors</h2>
 <app-authors #authors></app-authors>
