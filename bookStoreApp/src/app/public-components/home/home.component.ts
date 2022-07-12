@@ -13,9 +13,12 @@ export class HomeComponent implements OnInit {
 
   public count: number = 0;
   public test: boolean = false;
-  constructor(public _testService: TestService) { }
+  constructor(public _testService: TestService) {
+    console.log('Hello from Parent constructor');
+  }
 
   ngOnInit(): void {
+    console.log('Hello from Parent ngOn init');
   }
 
   public counter(): void {
