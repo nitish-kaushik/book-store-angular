@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { InputModalityDetector } from '@angular/cdk/a11y';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { TestService } from '../../services/test.service';
 
 @Component({
@@ -6,19 +7,15 @@ import { TestService } from '../../services/test.service';
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.scss']
 })
-export class AuthorsComponent implements OnInit {
+export class AuthorsComponent implements OnInit, OnChanges {
 
+  @Input() data: number;
+  @Input() data2: boolean;
 
-  public data: number;
+  constructor() { }
 
-  public setData(value: number): void {
-    this.data = value;
-  }
-
-  constructor(private _testService: TestService) { }
-
-  public btnClick(): void {
-    this._testService.myData = 'This text is from child component';
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 
   ngOnInit(): void {
