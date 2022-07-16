@@ -1,4 +1,12 @@
 <p>home parent works!</p>
 
 <button (click)="counter()">counter</button>
-<app-authors [data]="count" [data2]="test" [author]="obj"></app-authors>
+<!-- <app-authors [data]="count" [data2]="test" [author]="obj">
+    <h1>Dynamic data from parent</h1>
+</app-authors>
+
+<hr> -->
+
+<app-authors [data]="count" [data2]="test" [author]="obj">
+    <app-authors-address [address]="address"></app-authors-address>
+</app-authors>
