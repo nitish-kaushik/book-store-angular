@@ -17,6 +17,8 @@ export class AuthorsComponent implements OnInit, OnChanges, DoCheck, AfterConten
   @Input() data2: boolean;
   @Input() author: AuthorModel;
 
+  public childCounter: number = 0;
+
   constructor() {
     console.log('Hello from Child constructor');
   }
@@ -41,4 +43,8 @@ export class AuthorsComponent implements OnInit, OnChanges, DoCheck, AfterConten
     console.log('Hello from Child ngOn init');
   }
 
+
+  incCounter(): void {
+    this.childCounter++;
+  }
 }

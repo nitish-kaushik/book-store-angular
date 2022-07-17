@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { AuthorsComponent } from 'src/app/shared/components/authors/authors.component';
 import { AuthorModel } from 'src/app/shared/models/authors.model';
@@ -10,8 +10,9 @@ import { TestService } from 'src/app/shared/services/test.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   @ViewChild('btnCounter') btnCounter: ElementRef;
+  @ViewChild(AuthorsComponent) authComponent: AuthorsComponent;
 
   public count: number = 0;
   public test: boolean = false;
@@ -20,6 +21,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(public _testService: TestService) {
     console.log('Hello from Parent constructor');
+  }
+  ngAfterViewChecked(): void {
+    console.log(this.authComponent.childCounter);
   }
   ngAfterViewInit(): void {
     console.log(this.btnCounter);
