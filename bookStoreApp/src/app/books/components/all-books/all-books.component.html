@@ -1,10 +1,3 @@
 <h2>{{pageTitle}}</h2>
 
-<a [routerLink]="'recent'">Recent books</a>
-<button (click)="increase()">Counter ++</button>
-
-<button (click)="decrease()">Counter --</button>
-
-<p>Counter = {{_counterService.counter}}</p>
-
 <app-book-card [allBooks]="books"></app-book-card>

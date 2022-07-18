@@ -7,8 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AuthorsAddressComponent implements OnInit {
 
-  @Input() address: string;
-
   constructor() { }
 
   ngOnInit(): void {
