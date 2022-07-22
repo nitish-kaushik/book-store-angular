@@ -26,6 +26,7 @@ export class AddBookComponent implements OnInit {
       value: value.price
     };
     book.isPublished = value.isPublished;
+    book.publishedOn = value.publishedOn;
     this._bookService.addBook(book);
   }
 }

@@ -7,6 +7,7 @@ export class BookModel {
     private _author: string;
     public price: PriceModel
     public isPublished: boolean;
+    public publishedOn: Date;
 
     public set author(value: string) {
         this._author = 'Author: ' + value;

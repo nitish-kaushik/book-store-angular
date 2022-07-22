@@ -37,6 +37,7 @@ export class AllBooksComponent implements OnInit {
       obj.title = b.title;
       obj.totalPages = b.totalPages;
       obj.isPublished = b.isPublished;
+      obj.publishedOn = b.publishedOn;
       this.books.push(obj);
     })
     console.log(this.books);
