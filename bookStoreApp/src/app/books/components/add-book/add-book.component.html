@@ -18,12 +18,15 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Price</mat-label>
-        <input matInput type="number" name="price" placeholder="Price" ngModel>
+        <!-- <input matInput type="number" name="price" placeholder="Price" ngModel> -->
+        <mat-select name="price" placeholder="Price" ngModel>
+            <mat-option value="100">$ 100</mat-option>
+            <mat-option value="200">$ 200</mat-option>
+            <mat-option value="300">$ 300</mat-option>
+        </mat-select>
         <mat-icon matSuffix>attach_money</mat-icon>
     </mat-form-field>
-    <!-- <input type="text" name="title" placeholder="Title" ngModel> <br> <br>
-    <input type="text" name="author" placeholder="Author" ngModel><br> <br>
-    <input type="number" name="pages" placeholder="Pages" ngModel> <br> <br>
-    <input type="number" name="price" placeholder="Price" ngModel><br> <br> -->
+    <mat-slide-toggle class="toggle" name="isPublished" ngModel>Is book published</mat-slide-toggle>
+
     <button type="submit" mat-raised-button color="primary"> Save</button>
 </form>

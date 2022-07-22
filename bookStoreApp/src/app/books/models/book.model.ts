@@ -6,6 +6,7 @@ export class BookModel {
     public totalPages: number;
     private _author: string;
     public price: PriceModel
+    public isPublished: boolean;
 
     public set author(value: string) {
         this._author = 'Author: ' + value;
