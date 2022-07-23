@@ -1,0 +1,41 @@
+<h2>Add new Book using Reactive</h2>
+<form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput name="title" placeholder="Title" formControlName="title">
+        <mat-icon matSuffix>title</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input matInput name="author" placeholder="Author" formControlName="author">
+        <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>No of Pages</mat-label>
+        <input matInput type="number" name="pages" placeholder="Pages" formControlName="totalPages">
+        <mat-icon matSuffix>123</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <mat-select name="price" placeholder="Price" formControlName="price">
+            <mat-option *ngFor="let price of prices" [value]="price.value">
+                {{price.viewValue}}
+            </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" name="publishedOn" formControlName="publishedOn">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-slide-toggle class="toggle" name="isPublished" formControlName="isPublished">Is book published
+    </mat-slide-toggle>
+
+    <button type="submit" [disabled]="addBookForm.invalid" mat-raised-button color="primary"> Save</button>
+</form>
+
+{{addBookForm.value | json}}

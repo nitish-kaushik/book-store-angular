@@ -1,4 +1,6 @@
 <h2>{{pageTitle}}</h2>
 
 <button mat-raised-button color="primary" [routerLink]="'new'">Add New Book</button>
+<button mat-raised-button color="primary" [routerLink]="'new-reactive'">Add New Book using Reactive form</button>
+
 <app-book-card [allBooks]="books"></app-book-card>
