@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 
 @Component({
@@ -10,9 +10,14 @@ import { BookService } from '../../services/book.service';
 export class AddBookReactiveComponent implements OnInit {
 
   prices: any[] = [
-    { value: 100, viewValue: '$ 100' },
-    { value: 200, viewValue: '$ 200' },
-    { value: 300, viewValue: '$ 300' },
+    { value: 100, viewValue: '100' },
+    { value: 200, viewValue: '200' },
+    { value: 300, viewValue: '300' },
+  ];
+
+  currencies: any[] = [
+    { value: 'USD', viewValue: 'US Dollar' },
+    { value: 'INR', viewValue: 'Indian Rupees' },
   ];
 
   public addBookForm: FormGroup;
@@ -38,7 +43,10 @@ export class AddBookReactiveComponent implements OnInit {
       title: new FormControl(),
       author: new FormControl(),
       totalPages: new FormControl(),
-      price: new FormControl(),
+      price: new FormGroup({
+        currency: new FormControl(),
+        value: new FormControl()
+      }),
       publishedOn: new FormControl(),
       isPublished: new FormControl()
     });

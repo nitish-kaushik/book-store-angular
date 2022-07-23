@@ -15,15 +15,26 @@
         <input matInput type="number" name="pages" placeholder="Pages" formControlName="totalPages">
         <mat-icon matSuffix>123</mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Price</mat-label>
-        <mat-select name="price" placeholder="Price" formControlName="price">
-            <mat-option *ngFor="let price of prices" [value]="price.value">
-                {{price.viewValue}}
-            </mat-option>
-        </mat-select>
-        <mat-icon matSuffix>attach_money</mat-icon>
-    </mat-form-field>
+    <div class="price-container" formGroupName="price">
+        <mat-form-field appearance="fill">
+            <mat-label>Currency</mat-label>
+            <mat-select name="currency" placeholder="Currency" formControlName="currency">
+                <mat-option *ngFor="let currency of currencies" [value]="currency.value">
+                    {{currency.viewValue}}
+                </mat-option>
+            </mat-select>
+            <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <mat-select name="price" placeholder="Price" formControlName="value">
+                <mat-option *ngFor="let price of prices" [value]="price.value">
+                    {{price.viewValue}}
+                </mat-option>
+            </mat-select>
+            <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+    </div>
     <mat-form-field appearance="fill">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker" name="publishedOn" formControlName="publishedOn">

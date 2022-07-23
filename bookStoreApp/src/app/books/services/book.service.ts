@@ -26,56 +26,6 @@ export class BookService {
         "currency": "USD",
         "value": 19
       }
-    },
-    {
-      "id": 3,
-      "title": "The ups and downs of life",
-      "totalPages": 456,
-      "author": "Jay Malhotra",
-      "price": {
-        "currency": "INR",
-        "value": 299
-      }
-    },
-    {
-      "id": 4,
-      "title": "Azure walkthrough",
-      "totalPages": 879,
-      "author": "Pintu Verma",
-      "price": {
-        "currency": "INR",
-        "value": 399
-      }
-    },
-    {
-      "id": 5,
-      "title": "Asp.Net Core Web API",
-      "totalPages": 546,
-      "author": "Nagesh Khatri",
-      "price": {
-        "currency": "USD",
-        "value": 99
-      }
-    },
-    {
-      "id": 4,
-      "title": "Azure walkthrough",
-      "totalPages": 879,
-      "author": "Pintu Verma",
-      "price": {
-        "currency": "INR",
-        "value": 399
-      }
-    },
-    {
-      "id": 5,
-      "title": "Asp.Net Core Web API",
-      "totalPages": 546,
-      "author": "Nagesh Khatri",
-      "price": {
-        "currency": "USD",
-        "value": 99
-      }
     }
   ];
 
