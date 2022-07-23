@@ -1,19 +1,35 @@
 <h2>Add new Book</h2>
-{{'valid = ' + myForm.valid}} <br>
-{{'invalid = ' +myForm.invalid}}
+<table>
+    <tr>
+        <td>pristine</td>
+        <td>{{bookTitle.pristine}}</td>
+    </tr>
+    <tr>
+        <td>dirty</td>
+        <td>{{bookTitle.dirty}}</td>
+    </tr>
+    <tr>
+        <td>touched</td>
+        <td>{{bookTitle.touched}}</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>{{bookTitle.status}}</td>
+    </tr>
+</table>
 <form #myForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput name="title" placeholder="Title" [(ngModel)]="model.title" required maxlength="10"
+        <input matInput name="title" placeholder="Title" [(ngModel)]="model.title" required minlength="10"
             #bookTitle="ngModel">
         <mat-icon matSuffix>title</mat-icon>
-        <mat-hint [hidden]="bookTitle.valid">Please enter the book title</mat-hint>
+        <mat-hint *ngIf="bookTitle.invalid && bookTitle.touched">Please enter the book title</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Author</mat-label>
         <input matInput name="author" placeholder="Author" [(ngModel)]="model.author" required #author="ngModel">
         <mat-icon matSuffix>person</mat-icon>
-        <mat-hint [hidden]=" author.valid">Please enter the author</mat-hint>
+        <mat-hint *ngIf="author.invalid && author.touched">Please enter the author</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>No of Pages</mat-label>
