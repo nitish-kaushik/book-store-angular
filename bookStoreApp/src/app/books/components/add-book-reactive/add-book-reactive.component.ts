@@ -40,8 +40,8 @@ export class AddBookReactiveComponent implements OnInit {
   }
   private initForm(): void {
     this.addBookForm = new FormGroup({
-      title: new FormControl(),
-      author: new FormControl(),
+      title: new FormControl('nitish', [Validators.required, Validators.minLength(10)]),
+      author: new FormControl(null, Validators.required),
       totalPages: new FormControl(),
       price: new FormGroup({
         currency: new FormControl(),
