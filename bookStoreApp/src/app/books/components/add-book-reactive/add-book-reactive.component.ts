@@ -28,6 +28,14 @@ export class AddBookReactiveComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
+
+  updateFormValues(): void {
+    this.addBookForm.patchValue({
+      title: 'nitish kaushik',
+      author: 'default nitish'
+    });
+  }
+
   saveBook(): void {
     console.log(this.addBookForm.value);
 
@@ -50,5 +58,9 @@ export class AddBookReactiveComponent implements OnInit {
       publishedOn: new FormControl(),
       isPublished: new FormControl()
     });
+
+
   }
+
+
 }
