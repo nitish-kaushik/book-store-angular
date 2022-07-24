@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class AddBookReactiveComponent implements OnInit {
 
   public addBookForm: FormGroup;
 
-  constructor(private _bookService: BookService) {
+  constructor(private _bookService: BookService, private _formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -61,19 +61,19 @@ export class AddBookReactiveComponent implements OnInit {
     }
   }
   private initForm(): void {
-    this.addBookForm = new FormGroup({
-      title: new FormControl('nitish', [Validators.required, Validators.minLength(7)]),
-      author: new FormControl(null, Validators.required),
-      totalPages: new FormControl(),
-      price: new FormGroup({
-        currency: new FormControl(),
-        value: new FormControl()
+    this.addBookForm = this._formBuilder.group({
+      title: ['this is default', [Validators.required, Validators.minLength(10)]],
+      author: '',
+      totalPages: '',
+      price: this._formBuilder.group({
+        currency: '',
+        value: ''
       }),
-      publishedOn: new FormControl(),
-      isPublished: new FormControl(),
-      formatType: new FormControl(),
-      pdfFormat: new FormControl(),
-      docFormat: new FormControl()
+      publishedOn: '',
+      isPublished: '',
+      formatType: '',
+      pdfFormat: '',
+      docFormat: ''
     });
   }
 
