@@ -27,6 +27,9 @@ export class AddBookReactiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+
+    console.log(this.addBookForm.controls.title);
+    console.log(this.addBookForm.get('title'));
   }
 
   updateFormValues(): void {
@@ -58,8 +61,6 @@ export class AddBookReactiveComponent implements OnInit {
       publishedOn: new FormControl(),
       isPublished: new FormControl()
     });
-
-
   }
 
 

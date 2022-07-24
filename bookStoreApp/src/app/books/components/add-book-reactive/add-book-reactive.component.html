@@ -1,5 +1,7 @@
 <h2>Add new Book using Reactive</h2>
 <button (click)="updateFormValues()">Update values</button>
+{{addBookForm.get('title')?.valid}}
+{{addBookForm.get('title')?.errors | json}}
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
