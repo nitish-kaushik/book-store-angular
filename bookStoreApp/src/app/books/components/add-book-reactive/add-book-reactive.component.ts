@@ -29,10 +29,18 @@ export class AddBookReactiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+
     const titleControl = this.addBookForm.get('title');
     titleControl?.valueChanges.subscribe(x => {
       this.validateTitleControl(titleControl as FormControl);
     })
+
+
+    const formatTypeControl = this.addBookForm.get('formatType');
+    formatTypeControl?.valueChanges.subscribe(x => {
+      this.formatTypeChanged(x);
+    })
+
   }
 
   updateFormValues(): void {
@@ -62,7 +70,10 @@ export class AddBookReactiveComponent implements OnInit {
         value: new FormControl()
       }),
       publishedOn: new FormControl(),
-      isPublished: new FormControl()
+      isPublished: new FormControl(),
+      formatType: new FormControl(),
+      pdfFormat: new FormControl(),
+      docFormat: new FormControl()
     });
   }
 
@@ -76,5 +87,22 @@ export class AddBookReactiveComponent implements OnInit {
         this.titleErrorMessage = 'Minimum length is ' + titleControl.errors?.minlength?.requiredLength;
       }
     }
+  }
+
+  private formatTypeChanged(formatType: string): void {
+    const pdfControl = this.addBookForm.get('pdfFormat');
+    const docControl = this.addBookForm.get('docFormat');
+
+    if (formatType === 'pdf') {
+      pdfControl?.addValidators([Validators.required, Validators.minLength(10)]);
+      docControl?.clearValidators();
+    } else if (formatType === 'doc') {
+      docControl?.addValidators(Validators.required);
+      pdfControl?.clearValidators();
+    }
+
+    pdfControl?.updateValueAndValidity();
+    docControl?.updateValueAndValidity();
+
   }
 }

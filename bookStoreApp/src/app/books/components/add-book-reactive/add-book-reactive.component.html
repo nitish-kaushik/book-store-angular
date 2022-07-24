@@ -2,6 +2,21 @@
 <button (click)="updateFormValues()">Update values</button>
 
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
+    <mat-radio-group aria-label="Select an option" class="toggle" formControlName="formatType">
+        <mat-radio-button value="pdf">PDF</mat-radio-button>
+        <mat-radio-button value="doc">Doc</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Doc Format</mat-label>
+        <input matInput name="docFormat" placeholder="DocFormat" formControlName="docFormat">
+        <mat-icon matSuffix>title</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Pdf Format</mat-label>
+        <input matInput name="pdfFormat" placeholder="PdfFormat" formControlName="pdfFormat">
+        <mat-icon matSuffix>title</mat-icon>
+    </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
         <input matInput name="title" placeholder="Title" formControlName="title">
