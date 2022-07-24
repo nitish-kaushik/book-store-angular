@@ -30,7 +30,9 @@
                 <input matInput name="author" placeholder="Author fullName" formControlName="fullName">
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
+            <button mat-button (click)="removeAuthor(i)">Remove</button>
         </div>
+        <button (click)="addMoreAuthor()" mat-button>Add more</button>
     </div>
     <mat-form-field appearance="fill">
         <mat-label>No of Pages</mat-label>

@@ -47,6 +47,14 @@ export class AddBookReactiveComponent implements OnInit {
     return <FormArray>this.addBookForm.get('authors');
   }
 
+  public addMoreAuthor(): void {
+    this.authors.push(this.getAuthorControl());
+  }
+
+  public removeAuthor(i: number): void {
+    this.authors.removeAt(i);
+  }
+
   updateFormValues(): void {
     this.addBookForm.patchValue({
       title: 'nitish kaushik',
