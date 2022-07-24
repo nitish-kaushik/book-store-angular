@@ -8,4 +8,5 @@ export class BookModel {
     public price: PriceModel
     public isPublished: boolean;
     public publishedOn: Date;
+    public authors: string[];
 }
