@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { BookService } from '../../services/book.service';
   styleUrls: ['./add-book-reactive.component.scss']
 })
 export class AddBookReactiveComponent implements OnInit {
+
+  public titleErrorMessage: string;
 
   prices: any[] = [
     { value: 100, viewValue: '100' },
@@ -27,15 +29,10 @@ export class AddBookReactiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-
-    // console.log(this.addBookForm.controls.title);
-    // console.log(this.addBookForm.get('title'));
-
     const titleControl = this.addBookForm.get('title');
     titleControl?.valueChanges.subscribe(x => {
-      console.log(x);
+      this.validateTitleControl(titleControl as FormControl);
     })
-
   }
 
   updateFormValues(): void {
@@ -57,7 +54,7 @@ export class AddBookReactiveComponent implements OnInit {
   }
   private initForm(): void {
     this.addBookForm = new FormGroup({
-      title: new FormControl('nitish', [Validators.required, Validators.minLength(10)]),
+      title: new FormControl('nitish', [Validators.required, Validators.minLength(7)]),
       author: new FormControl(null, Validators.required),
       totalPages: new FormControl(),
       price: new FormGroup({
@@ -70,4 +67,14 @@ export class AddBookReactiveComponent implements OnInit {
   }
 
 
+  private validateTitleControl(titleControl: FormControl): void {
+    this.titleErrorMessage = '';
+    if (titleControl.errors && (titleControl.touched || titleControl.dirty)) {
+      if (titleControl.errors?.required) {
+        this.titleErrorMessage = 'This is a required field';
+      } else if (titleControl.errors?.minlength) {
+        this.titleErrorMessage = 'Minimum length is ' + titleControl.errors?.minlength?.requiredLength;
+      }
+    }
+  }
 }
