@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BookModel } from '../models/book.model';
 
@@ -6,63 +7,19 @@ import { BookModel } from '../models/book.model';
 })
 export class BookService {
 
-  private allBooks = [
-    {
-      "id": 1,
-      "title": "Angular fundamentals",
-      "totalPages": 453,
-      "author": "Ram Singh",
-      "price": {
-        "currency": "INR",
-        "value": 199
-      }
-    },
-    {
-      "id": 2,
-      "title": "Java fundamentals",
-      "totalPages": 987,
-      "author": "Kishan Pal",
-      "price": {
-        "currency": "USD",
-        "value": 19
-      }
-    }
-  ];
-
-  constructor() { }
+  constructor(private _httpClient: HttpClient) { }
 
 
   public addBook(bookModel: BookModel): void {
-    this.allBooks.push(bookModel);
+
   }
 
-  public getBooks(): any[] {
-    return this.allBooks;
+  public getBooks(): void {
+    this._httpClient.get('');
   }
 
 
   public recentBooks(): any[] {
-    return [
-      {
-        "id": 1,
-        "title": "Angular fundamentals",
-        "totalPages": 453,
-        "author": "Ram Singh",
-        "price": {
-          "currency": "INR",
-          "value": 199
-        }
-      },
-      {
-        "id": 2,
-        "title": "Java fundamentals",
-        "totalPages": 987,
-        "author": "Kishan Pal",
-        "price": {
-          "currency": "USD",
-          "value": 19
-        }
-      },
-    ];
+    return [];
   }
 }

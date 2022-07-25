@@ -10,6 +10,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddBookReactiveComponent } from './components/add-book-reactive/add-book-reactive.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,6 @@ import { AddBookReactiveComponent } from './components/add-book-reactive/add-boo
     AddBookReactiveComponent,
 
   ],
-  imports: [CommonModule, PublicRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, PublicRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, HttpClientModule],
 })
 export class BooksModule { }
