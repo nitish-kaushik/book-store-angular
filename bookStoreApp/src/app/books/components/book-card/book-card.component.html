@@ -14,7 +14,7 @@
                 Price: {{book.price.value + ' '+ book.price.currency}}
             </p>
             <p>
-                Is book published: {{book.isPublished}}
+                Is book published: {{book.isPublished | boolformat}}
             </p>
             <p>
                 Published on: {{book.publishedOn | date}}
