@@ -1,7 +1,8 @@
 <div class="container">
     <mat-card class="book-card" *ngFor="let book of books">
         <mat-card-header>
-            <mat-card-title>{{book.title}}</mat-card-title>
+            <mat-card-title>{{book.title | titlecase
+                }}</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <mat-card-content>
@@ -16,7 +17,7 @@
                 Is book published: {{book.isPublished}}
             </p>
             <p>
-                Published on: {{book.publishedOn}}
+                Published on: {{book.publishedOn | date}}
             </p>
             <p>
                 Authors:
