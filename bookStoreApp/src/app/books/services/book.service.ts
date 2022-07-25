@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { BookModel } from '../models/book.model';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class BookService {
 
   }
 
-  public getBooks(): void {
-
+  public getBooks(): Observable<BookModel[]> {
+    return this._httpClient.get<BookModel[]>('https://localhost:7287/api/books');
   }
 }

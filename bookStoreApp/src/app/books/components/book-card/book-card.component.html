@@ -18,6 +18,13 @@
             <p>
                 Published on: {{book.publishedOn}}
             </p>
+            <p>
+                Authors:
+                <span *ngFor="let author of book.authors">
+                    {{author.fullName}},
+                    ({{author.address}})
+                </span>
+            </p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button>Details</button>
