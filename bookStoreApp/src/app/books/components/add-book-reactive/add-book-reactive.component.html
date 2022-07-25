@@ -1,6 +1,4 @@
 <h2>Add new Book using Reactive</h2>
-<button (click)="updateFormValues()">Update values</button>
-
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
     <mat-radio-group aria-label="Select an option" class="toggle" formControlName="formatType">
         <mat-radio-button value="pdf">PDF</mat-radio-button>
@@ -28,6 +26,11 @@
             <mat-form-field appearance="fill" [formGroupName]="i">
                 <mat-label>Author</mat-label>
                 <input matInput name="author" placeholder="Author fullName" formControlName="fullName">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill" [formGroupName]="i">
+                <mat-label>Address</mat-label>
+                <input matInput name="address" placeholder="Author address" formControlName="address">
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
             <button mat-button (click)="removeAuthor(i)">Remove</button>
@@ -72,5 +75,3 @@
 
     <button type="submit" [disabled]="addBookForm.invalid" mat-raised-button color="primary"> Save</button>
 </form>
-
-{{addBookForm.value | json}}
